@@ -11,6 +11,9 @@ I am an incoming Master student at the [University of Pennsylvania (UPenn)](http
 - **Computer Vision:** video generation
 - **Multi-modal Large Language Model:** MLLMs
 
+## Industry Interests
+
+- **Utilizing AI to better people with disability's life**: Sign Language Translation
 <!-- ## News -->
 
 <!-- - **[Feb. 2020]** Our paper about incremental learning is accepted to CVPR 2020.
