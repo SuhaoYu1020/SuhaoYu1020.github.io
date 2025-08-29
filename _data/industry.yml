@@ -1,0 +1,8 @@
+main:
+  - name: "FingerDance"
+    position: "Deputy Technical Director"
+    duration: "2024 - Present"
+    description: "AI-powered Sign Language Translation Startup"
+    website: "https://fingerdance.ai/home/"
+    logo: "./assets/img/FingerDance.jpg"
+    # project: "https://example.com/project"  # 可选项目链接
