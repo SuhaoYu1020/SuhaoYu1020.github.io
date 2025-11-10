@@ -10,11 +10,12 @@ I am SE Master student at the [University of Pennsylvania (UPenn)](https://www.s
 
 - **Computer Vision:** Text image generation
 - **LLM :** Multi-model Large Language Model
-- **Agentic AI:** Self-Envolving Agent
+- **Agentic AI:** Self-Envolving Agent, GUI Agent
 
 
 ## News
 
+- **[Nov. 2025]** I join GMLR, the destination are stars!
 - **[Aug. 2025]** I start my master in University of Pennsylvania! Let's go quakers!
 - **[June. 2025]** We release MedFrameQA, a multiple image medical VQA benchmark to evaluate LLMs’ clinical reasoning capabilities.
 
