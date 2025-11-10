@@ -15,7 +15,7 @@ I am SE Master student at the [University of Pennsylvania (UPenn)](https://www.s
 
 ## News
 
-- **[Nov. 2025]** I join GMLR, the destination are stars!
+- **[Nov. 2025]** I join GMLR, the destination is star!
 - **[Aug. 2025]** I start my master in University of Pennsylvania! Let's go quakers!
 - **[June. 2025]** We release MedFrameQA, a multiple image medical VQA benchmark to evaluate LLMs’ clinical reasoning capabilities.
 
