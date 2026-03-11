@@ -8,8 +8,7 @@ I am DATS Master student at the [University of Pennsylvania (UPenn)](https://www
 
 ## Research Interests
 
-- **Computer Vision:** Text image generation
-- **LLM :** Multi-model Large Language Model
+- **VLM :** Unified Multi-model Model
 - **Agentic AI:** Self-Envolving Agent, GUI Agent
 
 
