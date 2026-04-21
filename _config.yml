@@ -1,3 +1,7 @@
+# Site URL (used by jekyll-sitemap and absolute links). If you use a custom domain, change this.
+url: "https://suhaoyu1020.github.io"
+baseurl: ""
+
 # Basic Information 
 title: Suhao Yu
 position: Master Student
@@ -43,6 +47,10 @@ font: "Serif" # or "Sans Serif"
 # Use this project as a remote theme for GitHub Pages
 # See the guide here: https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll
 remote_theme: yaoyao-liu/minimal-light
+
+# Auto-generate /sitemap.xml on each build (GitHub Pages allowlist).
+plugins:
+  - jekyll-sitemap
 
 # The following files will be removed from the generated website.
 exclude:
