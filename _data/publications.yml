@@ -1,5 +1,10 @@
 main:
-  - title: "🏥MedFrameQA: A Multi-Image Medical VQA Benchmark for Clinical ReasoningMedFrameQA: A Multi-Image Medical VQA Benchmark for Clinical Reasoning"
+  - title: "Entropy-based Patchification Creates Semantic Tokens"
+    authors: Suhao Yu, Jingjia Peng, Yao Tang, Jiatao Gu
+    conference_short: preprint
+    image: ./assets/img/teaser_entropy.png
+
+  - title: "🏥MedFrameQA: A Multi-Image Medical VQA Benchmark for Clinical Reasoning"
     authors: Suhao Yu*, Haojin Wang*, Juncheng Wu*, Cihang Xie, Yuyin Zhou
     conference_short: preprint
     # conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, 2020.
