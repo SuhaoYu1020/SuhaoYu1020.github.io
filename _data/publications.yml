@@ -1,16 +1,16 @@
 main:
   - title: "🖼️Entropy-based Patchification Creates Semantic Tokens"
-    authors: Suhao Yu, Jingjia Peng, Yao Tang, Jiatao Gu
+    authors: "<strong>Suhao Yu</strong>, Jingjia Peng, Yao Tang, Jiatao Gu"
     conference_short: preprint
     image: ./assets/img/teaser_entropy.png
 
   - title: "🏥A Decade of Deep Learning-based Biomedical Image Segmentation"
-    authors: "Suhao Yu*, Haojin Wang*, Ningsen Wang*, Sicheng Chen*, Juncheng Wu, Zhenlong Yuan, Tianhao Qi, Zongwei Zhou, Fei Xia, Jun Ma, and Yuyin Zhou"
+    authors: "<strong>Suhao Yu</strong>*, Haojin Wang*, Ningsen Wang*, Sicheng Chen*, Juncheng Wu, Zhenlong Yuan, Tianhao Qi, Zongwei Zhou, Fei Xia, Jun Ma, and Yuyin Zhou"
     conference_short: preprint
     image: ./assets/img/teaser_segmentation_survey.png
 
   - title: "🏥MedFrameQA: A Multi-Image Medical VQA Benchmark for Clinical Reasoning"
-    authors: Suhao Yu*, Haojin Wang*, Juncheng Wu*, Cihang Xie, Yuyin Zhou
+    authors: "<strong>Suhao Yu</strong>*, Haojin Wang*, Juncheng Wu*, Cihang Xie, Yuyin Zhou"
     conference_short: preprint
     # conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, 2020.
     pdf: https://arxiv.org/abs/2505.16964
