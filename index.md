@@ -13,6 +13,7 @@ I am DATS Master student at the [University of Pennsylvania (UPenn)](https://www
 
 
 ## News
+- 🎉 **[Apr. 2026]** Our paper *Entropy-based Patchification Creates Semantic Tokens* has been accepted by CVPR VisCon 2026 workshop!
 - 🏆 **[Dec. 2025]** I win the Discover Award of Penn Wharton Innovation Fund!
 - 🚀 **[Nov. 2025]** I join GMLR, the destination is star!
 - 🎓 **[Aug. 2025]** I start my master in University of Pennsylvania! Let's go quakers!

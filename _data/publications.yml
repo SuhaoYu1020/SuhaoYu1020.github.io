@@ -1,7 +1,8 @@
 main:
   - title: "🖼️Entropy-based Patchification Creates Semantic Tokens"
     authors: "<strong>Suhao Yu</strong>, Jingjia Peng, Yao Tang, Jiatao Gu"
-    conference_short: preprint
+    conference_short: CVPR VisCon 2026
+    conference: "<strong style='color:#1a73e8'>CVPR VisCon 2026 Workshop</strong>"
     pdf: https://openreview.net/attachment?id=AyoGBKzOqn&name=pdf
     image: ./assets/img/teaser_entropy.png
 
