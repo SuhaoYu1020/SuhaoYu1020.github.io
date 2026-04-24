@@ -2,6 +2,7 @@ main:
   - title: "🖼️Entropy-based Patchification Creates Semantic Tokens"
     authors: "<strong>Suhao Yu</strong>, Jingjia Peng, Yao Tang, Jiatao Gu"
     conference_short: preprint
+    pdf: https://openreview.net/attachment?id=AyoGBKzOqn&name=pdf
     image: ./assets/img/teaser_entropy.png
 
   - title: "🏥A Decade of Deep Learning-based Biomedical Image Segmentation"
