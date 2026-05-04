@@ -92,9 +92,32 @@
         </div>
         <br>
 
-        <div style="text-align: center;">
-          <script type="text/javascript" id="mmvst_globe" src="//mapmyvisitors.com/globe.js?d=HkXsGYrWKS8BCPwDqXSrroQdV76ldvmi1lpcxn_ZHpQ"></script>
+        <div id="globe-container" style="width: 100%; overflow: hidden; display: flex; justify-content: center;">
+          <div id="globe-scaler" style="transform-origin: top center; flex-shrink: 0;">
+            <script type="text/javascript" id="mmvst_globe" src="//mapmyvisitors.com/globe.js?d=HkXsGYrWKS8BCPwDqXSrroQdV76ldvmi1lpcxn_ZHpQ"></script>
+          </div>
         </div>
+        <script>
+          (function () {
+            function scaleGlobe() {
+              var container = document.getElementById('globe-container');
+              var scaler = document.getElementById('globe-scaler');
+              var el = scaler.querySelector('canvas, img');
+              if (!el || !container) return;
+              var nativeW = el.offsetWidth || el.naturalWidth || 300;
+              var scale = container.offsetWidth / nativeW;
+              scaler.style.transform = 'scale(' + scale + ')';
+              container.style.height = Math.round(nativeW * scale) + 'px';
+            }
+            var attempts = 0;
+            var timer = setInterval(function () {
+              scaleGlobe();
+              attempts++;
+              if (attempts >= 20) clearInterval(timer);
+            }, 300);
+            window.addEventListener('resize', scaleGlobe);
+          })();
+        </script>
 
       </header>
       <section>
