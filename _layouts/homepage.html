@@ -102,20 +102,24 @@
             function scaleGlobe() {
               var container = document.getElementById('globe-container');
               var scaler = document.getElementById('globe-scaler');
-              var el = scaler.querySelector('canvas, img');
-              if (!el || !container) return;
-              var nativeW = el.offsetWidth || el.naturalWidth || 300;
-              var scale = container.offsetWidth / nativeW;
+              if (!container || !scaler) return;
+              var el = scaler.querySelector('canvas, img, div[style]');
+              if (!el) return;
+              var nativeW = el.offsetWidth;
+              var containerW = container.offsetWidth;
+              if (!nativeW || !containerW) return;
+              var scale = containerW / nativeW;
               scaler.style.transform = 'scale(' + scale + ')';
               container.style.height = Math.round(nativeW * scale) + 'px';
+              clearInterval(timer);
+              window.addEventListener('resize', scaleGlobe);
             }
             var attempts = 0;
             var timer = setInterval(function () {
-              scaleGlobe();
               attempts++;
-              if (attempts >= 20) clearInterval(timer);
-            }, 300);
-            window.addEventListener('resize', scaleGlobe);
+              scaleGlobe();
+              if (attempts >= 30) clearInterval(timer);
+            }, 500);
           })();
         </script>
 
