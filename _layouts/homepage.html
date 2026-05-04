@@ -92,36 +92,12 @@
         </div>
         <br>
 
-        <div id="globe-container" style="width: 100%; overflow: hidden; display: flex; justify-content: center;">
-          <div id="globe-scaler" style="transform-origin: top center; flex-shrink: 0;">
-            <script type="text/javascript" id="mmvst_globe" src="//mapmyvisitors.com/globe.js?d=HkXsGYrWKS8BCPwDqXSrroQdV76ldvmi1lpcxn_ZHpQ"></script>
-          </div>
+        <style>
+          #globe-wrap canvas, #globe-wrap img { width: 100% !important; height: auto !important; }
+        </style>
+        <div id="globe-wrap" style="width:60%; margin:0 auto;">
+          <script type="text/javascript" id="mmvst_globe" src="//mapmyvisitors.com/globe.js?d=HkXsGYrWKS8BCPwDqXSrroQdV76ldvmi1lpcxn_ZHpQ"></script>
         </div>
-        <script>
-          (function () {
-            function scaleGlobe() {
-              var container = document.getElementById('globe-container');
-              var scaler = document.getElementById('globe-scaler');
-              if (!container || !scaler) return;
-              var el = scaler.querySelector('canvas, img, div[style]');
-              if (!el) return;
-              var nativeW = el.offsetWidth;
-              var containerW = container.offsetWidth;
-              if (!nativeW || !containerW) return;
-              var scale = containerW / nativeW;
-              scaler.style.transform = 'scale(' + scale + ')';
-              container.style.height = Math.round(nativeW * scale) + 'px';
-              clearInterval(timer);
-              window.addEventListener('resize', scaleGlobe);
-            }
-            var attempts = 0;
-            var timer = setInterval(function () {
-              attempts++;
-              scaleGlobe();
-              if (attempts >= 30) clearInterval(timer);
-            }, 500);
-          })();
-        </script>
 
       </header>
       <section>
