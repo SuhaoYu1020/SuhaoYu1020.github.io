@@ -1,4 +1,10 @@
 main:
+  - title: "🎧Learning When to Think While Listening in Large Audio-Language Models"
+    authors: "Zhiyuan Song, Weici Zhao, Yang Xiao, <strong>Suhao Yu</strong>, Cheng Zhu, Jiatao Gu"
+    conference_short: preprint
+    pdf: https://arxiv.org/abs/2605.27190
+    image: ./assets/img/teaser_audio-pcot.png
+
   - title: "🖼️Entropy-based Patchification Creates Semantic Tokens"
     authors: "<strong>Suhao Yu</strong>, Jingjia Peng, Yao Tang, Jiatao Gu"
     conference_short: CVPR VisCon 2026
