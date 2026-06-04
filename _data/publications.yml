@@ -9,7 +9,7 @@ main:
     authors: "<strong>Suhao Yu</strong>, Jingjia Peng, Yao Tang, Jiatao Gu"
     conference_short: CVPR VisCon 2026
     conference: "<strong style='color:#1a73e8'>CVPR VisCon 2026 Workshop</strong>"
-    pdf: https://openreview.net/attachment?id=AyoGBKzOqn&name=pdf
+    pdf: https://openreview.net/pdf?id=AyoGBKzOqn
     image: ./assets/img/teaser_entropy.png
 
   - title: "🏥A Decade of Deep Learning-based Biomedical Image Segmentation"
