@@ -1,4 +1,11 @@
 main:
+  - title: "🧠Latent Reasoning with Normalizing Flows"
+    authors: "Guancheng Tu, Xiangjun Fu, <strong>Suhao Yu</strong>, Yao Tang, Haoqiang Kang, Lianhui Qin, Yizhe Zhang, Jiatao Gu"
+    conference_short: preprint
+    pdf: https://arxiv.org/abs/2606.06447v1
+    page: https://nf-cot.vercel.app/
+    image: ./assets/img/teaser_NF_COT.png
+
   - title: "🎧Learning When to Think While Listening in Large Audio-Language Models"
     authors: "Zhiyuan Song, Weici Zhao, Yang Xiao, <strong>Suhao Yu</strong>, Cheng Zhu, Jiatao Gu"
     conference_short: preprint

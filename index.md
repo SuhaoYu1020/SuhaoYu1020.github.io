@@ -13,6 +13,7 @@ I am DATS Master student at the [University of Pennsylvania (UPenn)](https://www
 
 
 ## News
+- 📄 **[Jun. 2026]** We release [Latent Reasoning with Normalizing Flows](https://arxiv.org/abs/2606.06447v1)!
 - 📄 **[May. 2026]** We release [Learning When to Think While Listening in Large Audio-Language Models](https://arxiv.org/abs/2605.27190)!
 - 📄 **[Apr. 2026]** We release [A Decade of Deep Learning-based Biomedical Image Segmentation](https://www.biorxiv.org/content/10.64898/2026.04.27.721127v1)!
 - 🎉 **[Apr. 2026]** Our paper *Entropy-based Patchification Creates Semantic Tokens* has been accepted by CVPR VisCon 2026 workshop!
