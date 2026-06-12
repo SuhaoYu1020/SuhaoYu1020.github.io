@@ -4,12 +4,13 @@ layout: homepage
 
 ## About Me
 
-I am DATS Master student at the [University of Pennsylvania (UPenn)](https://www.seas.upenn.edu/), and I received CS bachelor degree in [Tongji University](https://cs.tongji.edu.cn). I am currently supervised by [Jiatao Gu](https://jiataogu.me/). Fortunately, I work as a research intern in the [VLAA lab](https://ucsc-vlaa.github.io/) at the University of California, Santa Cruz, supervised by [Yuyin Zhou](https://yuyinzhou.github.io/) and [Juncheng Wu](https://chtholly17.github.io/). My research interests lie in computer vision and multi-modal large language models! I also work as Deputy Technical Director in a startup [FingerDance](https://fingerdance.ai/home/).
+I am DATS Master student at the [University of Pennsylvania (UPenn)](https://www.seas.upenn.edu/), and I received CS bachelor degree in [Tongji University](https://cs.tongji.edu.cn). I am currently supervised by [Jiatao Gu](https://jiataogu.me/). Fortunately, I work as a research intern in the [VLAA lab](https://ucsc-vlaa.github.io/) at the University of California, Santa Cruz, supervised by [Yuyin Zhou](https://yuyinzhou.github.io/) and [Juncheng Wu](https://chtholly17.github.io/). My research interests lie in generative model, unified model and multimodal reasoning! I also work as Deputy Technical Director in a startup [FingerDance](https://fingerdance.ai/home/).
 
 ## Research Interests
 
-- **VLM :** Unified Multi-model Model
-- **Agentic AI:** Self-Envolving Agent, GUI Agent
+- **VLM :** Unified Multi-model Model, Multimodal Reasoning
+- **LLM:** Latent Reasoning
+- **Generative Model:** Normalizing Flow and Diffusion
 
 
 ## News
