@@ -29,5 +29,4 @@ I am DATS Master student at the [University of Pennsylvania (UPenn)](https://www
 
 {% include_relative _includes/industry.md %}
 
-<!-- 
-{% include_relative _includes/services.md %} -->
+{% include_relative _includes/services.md %}
