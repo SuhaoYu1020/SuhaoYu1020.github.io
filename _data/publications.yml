@@ -1,7 +1,8 @@
 main:
   - title: "🧠Latent Reasoning with Normalizing Flows"
     authors: "Guancheng Tu, Xiangjun Fu, <strong>Suhao Yu</strong>, Yao Tang, Haoqiang Kang, Lianhui Qin, Yizhe Zhang, Jiatao Gu"
-    conference_short: preprint
+    conference_short: COLM 2026
+    conference: "<strong style='color:#1a73e8'>COLM 2026 Workshop on Efficient Reasoning</strong>"
     pdf: https://arxiv.org/abs/2606.06447v1
     page: https://nf-cot.vercel.app/
     image: ./assets/img/teaser_NF_COT.png
