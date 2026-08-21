@@ -29,8 +29,8 @@ main:
 
   - title: "🏥MedFrameQA: A Multi-Image Medical VQA Benchmark for Clinical Reasoning"
     authors: "<strong>Suhao Yu</strong>*, Haojin Wang*, Juncheng Wu*, Cihang Xie, Yuyin Zhou"
-    conference_short: preprint
-    # conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, 2020.
+    conference_short: EMNLP 2026
+    conference: "<strong style='color:#1a73e8'>EMNLP 2026 Main Conference</strong>"
     pdf: https://arxiv.org/abs/2505.16964
     code: https://github.com/haojinw0027/MedFrameQA
     page: https://ucsc-vlaa.github.io/MedFrameQA/

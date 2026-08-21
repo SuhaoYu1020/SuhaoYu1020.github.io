@@ -14,6 +14,7 @@ I am DATS Master student at the [University of Pennsylvania (UPenn)](https://www
 
 
 ## News
+- 🎉 **[Aug. 2026]** Our paper *MedFrameQA: A Multi-Image Medical VQA Benchmark for Clinical Reasoning* has been accepted by EMNLP 2026 Main Conference!
 - 🎉 **[July. 2026]** Our paper *Latent Reasoning with Normalizing Flows* has been accepted by COLM 2026 Workshop on Efficient Reasoning, see you in SF!
 - 📄 **[Jun. 2026]** We release [Latent Reasoning with Normalizing Flows](https://arxiv.org/abs/2606.06447v1)!
 - 📄 **[May. 2026]** We release [Learning When to Think While Listening in Large Audio-Language Models](https://arxiv.org/abs/2605.27190)!
