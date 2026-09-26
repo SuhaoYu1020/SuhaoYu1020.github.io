@@ -1,0 +1,10 @@
+# Research interests, grouped by area.
+
+- area: VLM
+  topics: [Unified Multimodal Models, Multimodal Reasoning]
+
+- area: LLM
+  topics: [Latent Reasoning]
+
+- area: Generative Models
+  topics: [Normalizing Flows, Diffusion Models]

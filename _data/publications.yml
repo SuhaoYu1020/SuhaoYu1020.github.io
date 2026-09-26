@@ -1,39 +1,51 @@
-main:
-  - title: "🧠Latent Reasoning with Normalizing Flows"
-    authors: "Guancheng Tu, Xiangjun Fu, <strong>Suhao Yu</strong>, Yao Tang, Haoqiang Kang, Lianhui Qin, Yizhe Zhang, Jiatao Gu"
-    conference_short: COLM 2026
-    conference: "<strong style='color:#1a73e8'>COLM 2026 Workshop on Efficient Reasoning</strong>"
-    pdf: https://arxiv.org/abs/2606.06447v1
-    page: https://nf-cot.vercel.app/
-    image: ./assets/img/teaser_NF_COT.png
+# Publications, newest first.
+#
+#   title         paper title
+#   authors       author list (HTML allowed; wrap your own name in <strong>, mark equal contribution with *)
+#   venue         short tag, e.g. "EMNLP 2026"; use "Preprint" for preprints
+#   venue_detail  optional, e.g. "Main Conference" or "Workshop on ..."
+#   note          optional highlight tag, e.g. "Oral"
+#   image         teaser image
+#   pdf / code / page / bibtex   optional buttons (Paper / Code / Project / BibTeX)
+#   links         optional extra buttons, a list of {name, url}
 
-  - title: "🎧Learning When to Think While Listening in Large Audio-Language Models"
-    authors: "Zhiyuan Song, Weici Zhao, Yang Xiao, <strong>Suhao Yu</strong>, Cheng Zhu, Jiatao Gu"
-    conference_short: preprint
-    pdf: https://arxiv.org/abs/2605.27190
-    image: ./assets/img/teaser_audio-pcot.png
+- title: "Latent Reasoning with Normalizing Flows"
+  authors: "Guancheng Tu, Xiangjun Fu, <strong>Suhao Yu</strong>, Yao Tang, Haoqiang Kang, Lianhui Qin, Yizhe Zhang, Jiatao Gu"
+  venue: COLM 2026
+  venue_detail: Workshop on Efficient Reasoning
+  pdf: https://arxiv.org/abs/2606.06447v1
+  page: https://nf-cot.vercel.app/
+  image: ./assets/img/teaser_NF_COT.png
 
-  - title: "🖼️Entropy-based Patchification Creates Semantic Tokens"
-    authors: "<strong>Suhao Yu</strong>, Jingjia Peng, Yao Tang, Jiatao Gu"
-    conference_short: CVPR VisCon 2026
-    conference: "<strong style='color:#1a73e8'>CVPR VisCon 2026 Workshop</strong>"
-    pdf: https://openreview.net/pdf?id=AyoGBKzOqn
-    image: ./assets/img/teaser_entropy.png
+- title: "Learning When to Think While Listening in Large Audio-Language Models"
+  authors: "Zhiyuan Song, Weici Zhao, Yang Xiao, <strong>Suhao Yu</strong>, Cheng Zhu, Jiatao Gu"
+  venue: Preprint
+  pdf: https://arxiv.org/abs/2605.27190
+  image: ./assets/img/teaser_audio-pcot.png
 
-  - title: "🏥A Decade of Deep Learning-based Biomedical Image Segmentation"
-    authors: "<strong>Suhao Yu</strong>*, Haojin Wang*, Ningsen Wang*, Sicheng Chen*, Juncheng Wu, Zhenlong Yuan, Tianhao Qi, Zongwei Zhou, Fei Xia, Jun Ma, and Yuyin Zhou"
-    conference_short: preprint
-    pdf: https://www.biorxiv.org/content/10.64898/2026.04.27.721127v1
-    others: '<a href="https://suhaoyu1020.github.io/MedicalSegmentation-PromptType-Website/" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:12px;">Visualization</a> <a href="https://github.com/haojinw0027/Awesome-Promptable-Medical-Image-Segmentation" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:12px;">Paper List</a>'
-    image: ./assets/img/teaser_segmentation_survey.png
+- title: "Entropy-based Patchification Creates Semantic Tokens"
+  authors: "<strong>Suhao Yu</strong>, Jingjia Peng, Yao Tang, Jiatao Gu"
+  venue: CVPR 2026
+  venue_detail: VisCon Workshop
+  pdf: https://openreview.net/pdf?id=AyoGBKzOqn
+  image: ./assets/img/teaser_entropy.png
 
-  - title: "🏥MedFrameQA: A Multi-Image Medical VQA Benchmark for Clinical Reasoning"
-    authors: "<strong>Suhao Yu</strong>*, Haojin Wang*, Juncheng Wu*, Cihang Xie, Yuyin Zhou"
-    conference_short: EMNLP 2026
-    conference: "<strong style='color:#1a73e8'>EMNLP 2026 Main Conference</strong>"
-    pdf: https://arxiv.org/abs/2505.16964
-    code: https://github.com/haojinw0027/MedFrameQA
-    page: https://ucsc-vlaa.github.io/MedFrameQA/
-    # bibtex: https://class-il.mpi-inf.mpg.de/mnemonics/
-    # notes: Oral Presentation
-    image: ./assets/img/teaser_medframeqa.png
+- title: "A Decade of Deep Learning-based Biomedical Image Segmentation"
+  authors: "<strong>Suhao Yu</strong>*, Haojin Wang*, Ningsen Wang*, Sicheng Chen*, Juncheng Wu, Zhenlong Yuan, Tianhao Qi, Zongwei Zhou, Fei Xia, Jun Ma, and Yuyin Zhou"
+  venue: Preprint
+  pdf: https://www.biorxiv.org/content/10.64898/2026.04.27.721127v1
+  links:
+    - name: Visualization
+      url: https://suhaoyu1020.github.io/MedicalSegmentation-PromptType-Website/
+    - name: Paper List
+      url: https://github.com/haojinw0027/Awesome-Promptable-Medical-Image-Segmentation
+  image: ./assets/img/teaser_segmentation_survey.png
+
+- title: "MedFrameQA: A Multi-Image Medical VQA Benchmark for Clinical Reasoning"
+  authors: "<strong>Suhao Yu</strong>*, Haojin Wang*, Juncheng Wu*, Cihang Xie, Yuyin Zhou"
+  venue: EMNLP 2026
+  venue_detail: Main Conference
+  pdf: https://arxiv.org/abs/2505.16964
+  code: https://github.com/haojinw0027/MedFrameQA
+  page: https://ucsc-vlaa.github.io/MedFrameQA/
+  image: ./assets/img/teaser_medframeqa.png

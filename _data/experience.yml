@@ -1,0 +1,8 @@
+# Industry experience, newest first. `url`, `description` and `logo` are optional.
+
+- name: FingerDance
+  url: https://fingerdance.ai/home/
+  role: Deputy Technical Director
+  period: 2024 – Present
+  description: AI-powered sign language translation startup
+  logo: ./assets/img/fingerdance-logo.png

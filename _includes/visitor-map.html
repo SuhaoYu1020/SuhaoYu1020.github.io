@@ -1,0 +1,6 @@
+{%- comment -%} MapMyVisitors widget. cl = land, co = ocean, ct = text colour (hex without #). {%- endcomment -%}
+{%- if site.visitor_map %}
+<div class="visitor-map">
+  <script type="text/javascript" id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?d={{ site.visitor_map }}&amp;cl={{ include.land }}&amp;co={{ include.ocean }}&amp;ct={{ include.text }}&amp;w=a"></script>
+</div>
+{%- endif %}

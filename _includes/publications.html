@@ -1,0 +1,35 @@
+{%- assign has_equal = false -%}
+<ol class="pubs">
+  {%- for p in site.data.publications %}
+  {%- if p.authors contains "*" %}{% assign has_equal = true %}{% endif %}
+  {%- assign venue_key = p.venue | downcase %}
+  <li class="pub">
+    {%- if p.image %}
+    <a class="pub-thumb" href="{{ p.page | default: p.pdf }}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+      <img src="{{ p.image }}" alt="" loading="lazy" decoding="async">
+    </a>
+    {%- endif %}
+    <div class="pub-body">
+      {%- if p.venue %}
+      <p class="pub-venue">
+        <span class="tag{% if venue_key == 'preprint' %} tag-muted{% endif %}">{{ p.venue }}</span>
+        {%- if p.venue_detail %}<span class="pub-venue-detail">{{ p.venue_detail }}</span>{% endif %}
+        {%- if p.note %}<span class="tag tag-note">{{ p.note }}</span>{% endif %}
+      </p>
+      {%- endif %}
+      <h3 class="pub-title">{% if p.pdf %}<a href="{{ p.pdf }}" target="_blank" rel="noopener">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}</h3>
+      <p class="pub-authors">{{ p.authors }}</p>
+      <p class="pub-links">
+        {%- if p.pdf %}<a class="btn" href="{{ p.pdf }}" target="_blank" rel="noopener">Paper</a>{% endif %}
+        {%- if p.code %}<a class="btn" href="{{ p.code }}" target="_blank" rel="noopener">Code</a>{% endif %}
+        {%- if p.page %}<a class="btn" href="{{ p.page }}" target="_blank" rel="noopener">Website</a>{% endif %}
+        {%- if p.bibtex %}<a class="btn" href="{{ p.bibtex }}" target="_blank" rel="noopener">BibTeX</a>{% endif %}
+        {%- for l in p.links %}<a class="btn" href="{{ l.url }}" target="_blank" rel="noopener">{{ l.name }}</a>{% endfor %}
+      </p>
+    </div>
+  </li>
+  {%- endfor %}
+</ol>
+{%- if has_equal %}
+<p class="footnote">* Equal contribution</p>
+{%- endif %}

@@ -1,52 +1,37 @@
 # Site URL (used by jekyll-sitemap and absolute links). If you use a custom domain, change this.
 url: "https://suhaoyu1020.github.io"
 baseurl: ""
+lang: en
 
-# Basic Information 
+# Profile (shown at the top of the page)
 title: Suhao Yu
-position: Master Student
+position: Master's Student
 affiliation: University of Pennsylvania
 email: suhaoyu (at) seas.upenn.edu
+avatar: ./assets/img/profile.jpg
+favicon: ./assets/img/Suhao.png
+favicon_dark: ./assets/img/Suhao_dark.png
 
-# Search Engine Optimization (SEO)
-# The following information is used to improve the website traffic from search engines, e.g., Google.
-keywords: Suhao Yu, Suhao Yu UPenn, Suhao Yu University of Pennsylvania, computer science, machine learning, research
-description: Suhao Yu is a Master Student at the University of Pennsylvania (UPenn). Personal academic homepage with research interests, publications, and projects.
-canonical: https://suhaoyu1020.github.io/
-
-# Links 
-# If you don't need one of them, you may delete the corresponding line.
-google_scholar: https://scholar.google.com/citations?user=pl_-SngAAAAJ&hl=zh-CN&authuser=1
-# cv_link: assets/files/curriculum_vitae.pdf
+# Links. Delete a line to hide its button.
+google_scholar: https://scholar.google.com/citations?user=pl_-SngAAAAJ
+# cv_link: ./assets/files/curriculum_vitae.pdf
 github_link: https://github.com/SuhaoYu1020
 linkedin: https://www.linkedin.com/in/suhao-yu-853117336/
 twitter: https://x.com/SuhaoYu1020
 
-# Images (e.g., your profile picture and your website's favicon) 
-# "favicon" and "favicon_dark" are used for the light and dark modes, respectively. 
-avatar: ./assets/img/life.jpg
-favicon: ./assets/img/Suhao.png
-favicon_dark: ./assets/img/Suhao_dark.png
+# Search Engine Optimization (SEO)
+keywords: Suhao Yu, Suhao Yu UPenn, Suhao Yu University of Pennsylvania, computer science, machine learning, research
+description: Suhao Yu is a Master's Student at the University of Pennsylvania (UPenn). Personal academic homepage with research interests, publications, and projects.
+canonical: https://suhaoyu1020.github.io/
 
-# Footnote
-# You may use the option to disable the footnote, "Powered by Jekyll and Minimal Light theme."
-enable_footnote: true
-
-# Auto Dark Mode
-# You may use the option to disable the automatic dark theme
+# Follow the visitor's light/dark system setting.
 auto_dark_mode: true
 
-# Font
-# You can use this option to choose between Serif or Sans Serif fonts.
-font: "Serif" # or "Sans Serif"
+# News items shown before the "Show more" toggle.
+news_limit: 6
 
-# Google Analytics ID
-# Please remove this if you don't use Google Analytics
-# google_analytics: UA-111540567-4
-
-# Use this project as a remote theme for GitHub Pages
-# See the guide here: https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll
-remote_theme: yaoyao-liu/minimal-light
+# MapMyVisitors widget id (the `d=` value of its embed code). Delete to hide the map.
+visitor_map: gB5MK8VPfGZB-Ol1UKim258Aveo7uzWQzGAyBfnOXr8
 
 # Auto-generate /sitemap.xml on each build (GitHub Pages allowlist).
 plugins:

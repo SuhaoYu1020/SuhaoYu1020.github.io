@@ -1,0 +1,22 @@
+<ul class="social">
+  {%- if site.email %}
+  {%- comment %} Copies the address on click; it is only assembled in JS, never written as user@domain. {% endcomment %}
+  {%- assign email_parts = site.email | split: " (at) " %}
+  <li><button class="email" type="button" data-user="{{ email_parts[0] }}" data-domain="{{ email_parts[1] }}" aria-label="Copy email address: {{ site.email }}" title="{{ site.email }}">{% include icon.html name="mail" %}<span class="email-done" role="status">Email copied</span></button></li>
+  {%- endif %}
+  {%- if site.google_scholar %}
+  <li><a href="{{ site.google_scholar }}" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar">{% include icon.html name="scholar" %}</a></li>
+  {%- endif %}
+  {%- if site.github_link %}
+  <li><a href="{{ site.github_link }}" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">{% include icon.html name="github" %}</a></li>
+  {%- endif %}
+  {%- if site.linkedin %}
+  <li><a href="{{ site.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">{% include icon.html name="linkedin" %}</a></li>
+  {%- endif %}
+  {%- if site.twitter %}
+  <li><a href="{{ site.twitter }}" target="_blank" rel="noopener" aria-label="X (Twitter)" title="X (Twitter)">{% include icon.html name="x" %}</a></li>
+  {%- endif %}
+  {%- if site.cv_link %}
+  <li><a href="{{ site.cv_link }}" target="_blank" rel="noopener" aria-label="CV" title="CV">{% include icon.html name="cv" %}</a></li>
+  {%- endif %}
+</ul>

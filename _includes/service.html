@@ -1,0 +1,10 @@
+<ul class="service">
+  {%- for s in site.data.service %}
+  {%- assign role = s.title | split: ", " | first %}
+  {%- assign rest = s.title | remove_first: role | remove_first: ", " %}
+  <li class="service-item">
+    <span class="service-text"><strong>{{ role }}</strong>{% if rest != "" %}, {{ rest }}{% endif %}</span>
+    <span class="service-date">{{ s.date }}</span>
+  </li>
+  {%- endfor %}
+</ul>

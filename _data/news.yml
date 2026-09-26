@@ -1,0 +1,32 @@
+# News, newest first. `text` supports Markdown: *italic*, **bold**, [link](https://...).
+# Keep the quotes around `text` (titles often contain colons).
+
+- date: Aug 2026
+  text: "Our paper *MedFrameQA: A Multi-Image Medical VQA Benchmark for Clinical Reasoning* has been accepted by EMNLP 2026 Main Conference!"
+
+- date: Jul 2026
+  text: "Our paper *Latent Reasoning with Normalizing Flows* has been accepted by COLM 2026 Workshop on Efficient Reasoning, see you in SF!"
+
+- date: Jun 2026
+  text: "We release [Latent Reasoning with Normalizing Flows](https://arxiv.org/abs/2606.06447v1)!"
+
+- date: May 2026
+  text: "We release [Learning When to Think While Listening in Large Audio-Language Models](https://arxiv.org/abs/2605.27190)!"
+
+- date: Apr 2026
+  text: "We release [A Decade of Deep Learning-based Biomedical Image Segmentation](https://www.biorxiv.org/content/10.64898/2026.04.27.721127v1)!"
+
+- date: Apr 2026
+  text: "Our paper *Entropy-based Patchification Creates Semantic Tokens* has been accepted by CVPR VisCon 2026 workshop!"
+
+- date: Dec 2025
+  text: "I win the Discover Award of Penn Wharton Innovation Fund!"
+
+- date: Nov 2025
+  text: "I join GMLR, the destination is star!"
+
+- date: Aug 2025
+  text: "I start my master in University of Pennsylvania! Let's go quakers!"
+
+- date: Jun 2025
+  text: "We release MedFrameQA, a multiple image medical VQA benchmark to evaluate LLMs' clinical reasoning capabilities."

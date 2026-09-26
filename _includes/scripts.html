@@ -1,0 +1,18 @@
+<script>
+  // Copy the email address on click; fall back to mailto: where the clipboard is unavailable.
+  document.querySelectorAll(".email[data-user]").forEach(function (button) {
+    button.addEventListener("click", function () {
+      var address = button.dataset.domain ? button.dataset.user + "@" + button.dataset.domain : button.dataset.user;
+      var copied = function () {
+        button.classList.add("is-copied");
+        clearTimeout(button.copiedTimer);
+        button.copiedTimer = setTimeout(function () { button.classList.remove("is-copied"); }, 1600);
+      };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(address).then(copied, function () { location.href = "mailto:" + address; });
+      } else {
+        location.href = "mailto:" + address;
+      }
+    });
+  });
+</script>

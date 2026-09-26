@@ -1,0 +1,466 @@
+/* Editorial flow — the CV palette (ink, brick accent, blue for my own name) with a rounded typeface. */
+
+:root {
+  --bg: #fcfcfb;
+  --surface: #ffffff;
+  --surface-2: #f3f2f0;
+  --hair: #e1dfdb;
+  --hair-strong: #c7c4bf;
+  --ink: #1a1a1a;
+  --muted: #6e6e6e;
+  --accent: #9a3b26;
+  --accent-soft: #f7ece8;
+  --accent-line: #ddb9af;
+  --me: #1f4e8c;
+  --me-bg: #e3eaf3;
+  --thumb-bg: #ffffff;
+  --shadow-soft: 0 1px 2px rgb(26 26 26 / 5%);
+  --shadow-float: 0 1px 2px rgb(26 26 26 / 4%), 0 16px 36px -12px rgb(26 26 26 / 16%);
+  --shadow-portrait: 0 18px 36px -20px rgb(26 26 26 / 40%);
+  --font: "M PLUS Rounded 1c", ui-rounded, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --spine: 14px;
+  --indent: 56px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141312;
+    --surface: #1c1b19;
+    --surface-2: #252421;
+    --hair: #33312d;
+    --hair-strong: #4b4843;
+    --ink: #ecebe8;
+    --muted: #a6a39d;
+    --accent: #e08a70;
+    --accent-soft: #33211b;
+    --accent-line: #6f4032;
+    --me: #a3c1ea;
+    --me-bg: #1d2a3c;
+    --thumb-bg: #ecebe8;
+    --shadow-soft: 0 1px 2px rgb(0 0 0 / 40%);
+    --shadow-float: 0 16px 40px -12px rgb(0 0 0 / 65%);
+    --shadow-portrait: 0 18px 36px -20px rgb(0 0 0 / 80%);
+  }
+}
+
+/* ---------- Base ---------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 15.5px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, p, ul, ol, dl, dd { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; }
+::selection { background: var(--me-bg); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
+
+.icon { width: 1em; height: 1em; flex: none; }
+
+.prose a,
+.news-text a {
+  text-decoration: underline;
+  text-decoration-color: var(--accent-line);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  transition: color .2s, text-decoration-color .2s;
+}
+.prose a:hover,
+.news-text a:hover { color: var(--accent); text-decoration-color: currentColor; }
+
+/* ---------- Layout ---------- */
+
+.shell {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 80px;
+  align-items: start;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 72px 32px 48px;
+}
+
+/* ---------- Profile ---------- */
+
+@media (min-height: 800px) {
+  .profile { position: sticky; top: 64px; }
+}
+
+.avatar {
+  width: 184px;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 26px;
+  object-fit: cover;
+  box-shadow: var(--shadow-portrait);
+}
+
+.profile-text { margin-top: 24px; }
+.name { font-size: 30px; font-weight: 800; line-height: 1.2; letter-spacing: -0.01em; }
+.role { margin-top: 8px; font-weight: 700; }
+.affiliation { color: var(--muted); }
+
+.social { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.social a,
+.social .email {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: var(--shadow-soft), inset 0 0 0 1px var(--hair);
+  cursor: pointer;
+  transition: color .2s, background-color .2s, box-shadow .2s, transform .2s;
+}
+.social .icon { width: 18px; height: 18px; }
+.social a:hover,
+.social .email:hover {
+  color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: inset 0 0 0 1px var(--accent-line);
+  transform: translateY(-2px);
+}
+
+/* "Email copied" bubble above the envelope (see scripts.html). */
+.email-done {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  padding: 3px 9px;
+  border-radius: 8px;
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.6;
+  white-space: nowrap;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity .2s, transform .2s, visibility .2s;
+}
+.email.is-copied .email-done { visibility: visible; opacity: 1; transform: none; }
+
+.visitor-map { margin-top: 24px; overflow: hidden; border-radius: 18px; }
+.visitor-map canvas,
+.visitor-map img { display: block; width: 100% !important; height: auto !important; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .visitor-map > :not(script) { filter: invert(1) hue-rotate(180deg); }
+}
+
+/* ---------- Flow line & numbered sections ---------- */
+
+.flow { position: relative; min-width: 0; padding-left: var(--indent); counter-reset: section; }
+
+.flow-line {
+  position: absolute;
+  top: 14px;
+  bottom: 72px;
+  left: calc(var(--spine) - 1px);
+  width: 2px;
+  border-radius: 2px;
+  background: var(--hair);
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 96px), transparent);
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 96px), transparent);
+}
+.flow-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--accent);
+  transform-origin: top;
+  transform: scaleY(var(--flow, 1));
+}
+
+.section { counter-increment: section; }
+.section + .section { margin-top: 68px; }
+
+/* "01  ABOUT ————" as in the CV, with the number sitting on the flow line. */
+.section-title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 28px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.section-title::after { content: ""; flex: 1; height: 1px; background: var(--hair); }
+.section-title::before {
+  content: counter(section, decimal-leading-zero);
+  position: absolute;
+  top: 0;
+  left: calc(var(--spine) - var(--indent) - 14px);
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid var(--accent);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 25px;
+  letter-spacing: 0;
+  text-align: center;
+  transition: color .35s, border-color .35s;
+}
+.section-title.is-ahead::before { border-color: var(--hair-strong); color: var(--muted); }
+
+.subtitle {
+  margin: 28px 0 12px;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Content eases in as it enters the viewport (see flow.js). */
+@media (prefers-reduced-motion: no-preference) {
+  .js .section { transition: opacity .7s ease, transform .7s cubic-bezier(.2, .7, .2, 1); }
+  .js .section:not(.is-in),
+  .js .pub:not(.is-in) { opacity: 0; transform: translateY(18px); }
+}
+
+/* ---------- Content ---------- */
+
+.prose { font-size: 16px; }
+.prose p + p { margin-top: 1em; }
+
+/* Research interests, set like the CV's skills lines. */
+.interests { display: grid; gap: 6px; }
+.interest { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 12px; }
+.interest dt { font-weight: 800; }
+.topic:not(:last-child)::after { content: ","; margin-right: .35em; }
+
+/* News & service */
+
+.news { display: grid; gap: 12px; }
+.news-item { position: relative; display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 14px; }
+.news-date,
+.service-date,
+.exp-period {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 27px;
+  color: var(--muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* News items sit on the flow line as small dots. */
+.news-item::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: calc(var(--spine) - var(--indent) - 3.5px);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--bg);
+  transition: background-color .35s;
+}
+.news-item.is-ahead::before { background: var(--hair-strong); }
+
+.more { margin-top: 12px; }
+.more > .news { margin-top: 12px; }
+.more summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 90px;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  cursor: pointer;
+  list-style: none;
+}
+.more summary::-webkit-details-marker { display: none; }
+.more summary .icon { width: 15px; height: 15px; transition: transform .25s; }
+.more[open] summary .icon { transform: rotate(180deg); }
+.more-hide, .more[open] .more-show { display: none; }
+.more[open] .more-hide { display: inline; }
+
+.service { display: grid; gap: 6px; }
+.service-item { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+.service-text strong { font-weight: 800; }
+
+/* Publications: no dividers; an item lifts softly on hover. */
+
+.pubs { display: grid; gap: 4px; margin: 0 -18px; }
+.pub {
+  display: grid;
+  grid-template-columns: 216px minmax(0, 1fr);
+  gap: 24px;
+  padding: 18px;
+  border-radius: 22px;
+  transition: background-color .3s, box-shadow .3s, opacity .7s ease, transform .7s cubic-bezier(.2, .7, .2, 1);
+}
+.pub:hover { background: var(--surface); box-shadow: var(--shadow-float); }
+
+/* The image stretches with its text, so both start and end on the same lines.
+   The img is absolutely positioned so a tall teaser can't make the row taller. */
+.pub-thumb {
+  position: relative;
+  display: block;
+  min-height: 148px;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--thumb-bg);
+  box-shadow: 0 0 0 1px var(--hair);
+}
+.pub-thumb img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform .5s cubic-bezier(.2, .7, .2, 1);
+}
+.pub:hover .pub-thumb img { transform: scale(1.04); }
+/* Start at the cap height of the venue label rather than its line box. */
+.pub:has(.pub-venue) .pub-thumb { margin-top: 5px; }
+
+/* The link row sits on the block's bottom edge, level with the bottom of the image. */
+.pub-body { display: flex; flex-direction: column; min-width: 0; }
+
+/* Venue as a small-caps label, like the CV's sub-labels. */
+.pub-venue {
+  margin-bottom: 4px;
+  font-size: 11.5px;
+  font-weight: 800;
+  line-height: 1.6;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.tag { color: var(--accent); }
+.tag-muted { color: var(--muted); }
+.pub-venue-detail::before { content: "/"; margin: 0 8px; color: var(--hair-strong); }
+.tag-note { margin-left: 8px; padding: 0 6px; border-radius: 5px; background: var(--accent); color: #ffffff; }
+
+.pub-title { font-size: 16.5px; font-weight: 800; line-height: 1.5; }
+.pub-title a { transition: color .2s; }
+.pub-title a:hover { color: var(--accent); }
+
+.pub-authors { margin-top: 4px; font-size: 14px; line-height: 1.7; color: var(--muted); }
+.pub-authors strong {
+  margin: 0 -3px;
+  padding: 1px 3px;
+  border-radius: 4px;
+  background: var(--me-bg);
+  color: var(--me);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* Links as small outlined tags, as in the CV, on their own row. */
+.pub-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 10px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 9px;
+  border: 1px solid var(--accent);
+  border-radius: 7px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: color .2s, background-color .2s;
+}
+.btn:hover { background: var(--accent); color: var(--bg); }
+
+.footnote { margin-top: 14px; font-size: 12.5px; color: var(--muted); }
+
+/* Experience */
+
+.exp { display: grid; gap: 18px; }
+.exp-item { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 16px; align-items: start; }
+.exp-logo {
+  width: 44px;
+  height: 44px;
+  padding: 4px;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: var(--shadow-soft), inset 0 0 0 1px var(--hair);
+  object-fit: contain;
+}
+.exp-body { min-width: 0; }
+.exp-line { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+.exp-name { font-size: 16px; font-weight: 800; line-height: 27px; }
+.exp-name a { transition: color .2s; }
+.exp-name a:hover { color: var(--accent); }
+.exp-desc { color: var(--muted); }
+.sep { margin: 0 .5em; color: var(--hair-strong); }
+
+/* ---------- Footer ---------- */
+
+.footer { margin-top: 88px; font-size: 12.5px; color: var(--muted); }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1040px) {
+  .shell { grid-template-columns: 220px minmax(0, 1fr); gap: 48px; }
+  .pub { grid-template-columns: 170px minmax(0, 1fr); gap: 20px; }
+  .pub-thumb { min-height: 117px; }
+}
+
+@media (max-width: 820px) {
+  :root { --spine: 12px; --indent: 42px; }
+
+  .shell { grid-template-columns: minmax(0, 1fr); gap: 44px; padding: 28px 20px 40px; }
+
+  .profile { position: static; }
+  .avatar { width: 120px; border-radius: 22px; }
+  .profile-text { margin-top: 20px; }
+  .name { font-size: 28px; }
+  .profile .visitor-map { display: none; }
+
+  .section + .section { margin-top: 56px; }
+  .interest { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .interest + .interest { margin-top: 6px; }
+  .news-item { grid-template-columns: 70px minmax(0, 1fr); gap: 12px; }
+  .more summary { margin-left: 82px; }
+
+  .pubs { margin: 0 -12px; }
+  .pub { grid-template-columns: minmax(0, 1fr); gap: 14px; padding: 12px; }
+  /* Stacked: the whole figure, shown in a 2:1 frame above the text. */
+  .pub-thumb,
+  .pub:has(.pub-venue) .pub-thumb { aspect-ratio: 2 / 1; min-height: 0; margin-top: 0; }
+  .pub-thumb img { inset: 10px; width: calc(100% - 20px); height: calc(100% - 20px); object-fit: contain; object-position: center; }
+
+  .exp-line { flex-direction: column; gap: 0; }
+  .service-item { flex-direction: column; gap: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
