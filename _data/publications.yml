@@ -6,6 +6,7 @@
 #   venue_detail  optional, e.g. "Main Conference" or "Workshop on ..."
 #   note          optional highlight tag, e.g. "Oral"
 #   image         teaser image
+#   image_fit     optional; "contain" shows the whole image instead of cropping it to fill the frame
 #   pdf / code / page / bibtex   optional buttons (Paper / Code / Website / BibTeX)
 #   links         optional extra buttons, a list of {name, url}
 
@@ -15,6 +16,7 @@
   pdf: https://arxiv.org/abs/2609.36246
   page: https://dylanzsz.github.io/olive/
   image: ./assets/img/teaser_olive.png
+  image_fit: contain
 
 - title: "Latent Reasoning with Normalizing Flows"
   authors: "Guancheng Tu, Xiangjun Fu, <strong>Suhao Yu</strong>, Yao Tang, Haoqiang Kang, Lianhui Qin, Yizhe Zhang, Jiatao Gu"
