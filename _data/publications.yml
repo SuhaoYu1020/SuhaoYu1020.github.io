@@ -6,8 +6,15 @@
 #   venue_detail  optional, e.g. "Main Conference" or "Workshop on ..."
 #   note          optional highlight tag, e.g. "Oral"
 #   image         teaser image
-#   pdf / code / page / bibtex   optional buttons (Paper / Code / Project / BibTeX)
+#   pdf / code / page / bibtex   optional buttons (Paper / Code / Website / BibTeX)
 #   links         optional extra buttons, a list of {name, url}
+
+- title: "Learning from Teacher Continuations at Student States"
+  authors: "Haojin Wang*, Dylan Zhang*, Huaibo Chen, <strong>Suhao Yu</strong>, Yihang Sun, Zhanyang Jin, Jiaying Ye, Dianqi Li, Prasanna Sattigeri, Kamal Youcef-Toumi, Hao Peng"
+  venue: Preprint
+  pdf: https://arxiv.org/abs/2609.36246
+  page: https://dylanzsz.github.io/olive/
+  image: ./assets/img/teaser_olive.png
 
 - title: "Latent Reasoning with Normalizing Flows"
   authors: "Guancheng Tu, Xiangjun Fu, <strong>Suhao Yu</strong>, Yao Tang, Haoqiang Kang, Lianhui Qin, Yizhe Zhang, Jiatao Gu"
