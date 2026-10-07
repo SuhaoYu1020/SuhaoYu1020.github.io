@@ -1,6 +1,9 @@
 # News, newest first. `text` supports Markdown: *italic*, **bold**, [link](https://...).
 # Keep the quotes around `text` (titles often contain colons).
 
+- date: Oct 2026
+  text: "We release [InteractionBench: A Real-Time Interaction Benchmark for Streaming Video Systems](https://arxiv.org/abs/2610.05775)!"
+
 - date: Aug 2026
   text: "Our paper *MedFrameQA: A Multi-Image Medical VQA Benchmark for Clinical Reasoning* has been accepted by EMNLP 2026 Main Conference!"
 

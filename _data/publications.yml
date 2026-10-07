@@ -10,6 +10,18 @@
 #   pdf / code / page / bibtex   optional buttons (Paper / Code / Website / BibTeX)
 #   links         optional extra buttons, a list of {name, url}
 
+- title: "InteractionBench: A Real-Time Interaction Benchmark for Streaming Video Systems"
+  authors: "Enxin Song*, <strong>Suhao Yu</strong>*, Yifei Xu*, Barbara Su, Weili Xu, Wenhao Chai, Yao Tang, Jie Deng, Haiyang Xu, Jiatao Gu"
+  venue: Preprint
+  pdf: https://arxiv.org/abs/2610.05775
+  code: https://github.com/Espere-1119-Song/InteractionBench
+  page: https://www.enxinsong.com/projects/interactionbench/
+  links:
+    - name: Dataset
+      url: https://huggingface.co/datasets/InteractionBench/InteractionBench
+  image: ./assets/img/teaser_interactionbench.jpg
+  image_fit: contain
+
 - title: "Learning from Teacher Continuations at Student States"
   authors: "Haojin Wang*, Dylan Zhang*, Huaibo Chen, <strong>Suhao Yu</strong>, Yihang Sun, Zhanyang Jin, Jiaying Ye, Dianqi Li, Prasanna Sattigeri, Kamal Youcef-Toumi, Hao Peng"
   venue: Preprint
