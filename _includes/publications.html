@@ -5,7 +5,8 @@
   {%- assign venue_key = p.venue | downcase %}
   <li class="pub">
     {%- if p.image %}
-    <a class="pub-thumb{% if p.image_fit == 'contain' %} is-contain{% endif %}" href="{{ p.page | default: p.pdf }}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+    {%- comment %} The thumbnail opens the full figure (lightbox.js); without JS the link opens the image file. {% endcomment %}
+    <a class="pub-thumb{% if p.image_fit == 'contain' %} is-contain{% endif %}" href="{{ p.image }}" target="_blank" rel="noopener" data-caption="{{ p.title | escape }}" aria-label="Enlarge figure: {{ p.title | escape }}">
       <img src="{{ p.image }}" alt="" loading="lazy" decoding="async">
     </a>
     {%- endif %}

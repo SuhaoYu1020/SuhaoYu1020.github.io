@@ -322,6 +322,8 @@ button { font: inherit; color: inherit; }
   transition: background-color .3s, box-shadow .3s, opacity .7s ease, transform .7s cubic-bezier(.2, .7, .2, 1);
 }
 .pub:hover { background: var(--surface); box-shadow: var(--shadow-float); }
+/* No teaser image: the text takes the full width instead of the image column. */
+.pub:not(:has(.pub-thumb)) { grid-template-columns: minmax(0, 1fr); }
 
 /* The image stretches with its text, so both start and end on the same lines.
    The img is absolutely positioned so a tall teaser can't make the row taller. */
@@ -354,6 +356,53 @@ button { font: inherit; color: inherit; }
 }
 /* Start at the cap height of the venue label rather than its line box. */
 .pub:has(.pub-venue) .pub-thumb { margin-top: 5px; }
+.pub-thumb { cursor: zoom-in; }
+
+/* Lightbox: a thumbnail opens its full figure over a dimmed page (lightbox.js). */
+.lightbox {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 5vh 4vw;
+  border: 0;
+  background: transparent;
+  cursor: zoom-out;
+}
+.lightbox[open] { display: flex; align-items: center; justify-content: center; }
+.lightbox::backdrop { background: rgb(12 12 11 / 80%); backdrop-filter: blur(6px); }
+.lightbox figure { display: flex; flex-direction: column; align-items: center; gap: 14px; margin: 0; }
+.lightbox img {
+  max-width: min(1280px, 92vw);
+  max-height: 80vh;
+  padding: 16px;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 24px 60px -16px rgb(0 0 0 / 60%);
+}
+.lightbox figcaption { max-width: min(1280px, 92vw); color: #f3f2f0; font-size: 14px; font-weight: 700; text-align: center; }
+.lightbox-close {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 14%);
+  color: #ffffff;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color .2s;
+}
+.lightbox-close:hover { background: rgb(255 255 255 / 26%); }
+html:has(.lightbox[open]) { overflow: hidden; }
+@media (prefers-reduced-motion: no-preference) {
+  .lightbox[open] img { animation: lightbox-in .25s cubic-bezier(.2, .7, .2, 1); }
+  @keyframes lightbox-in { from { opacity: 0; transform: scale(.96); } }
+}
 
 /* The link row sits on the block's bottom edge, level with the bottom of the image. */
 .pub-body { display: flex; flex-direction: column; min-width: 0; }
