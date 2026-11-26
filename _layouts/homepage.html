@@ -1,71 +1,113 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: 'en' }}"{% unless site.auto_dark_mode %} data-theme="light"{% endunless %}>
+<html lang="{{ site.lang | default: 'en' }}">
 <head>
-  <script>document.documentElement.classList.add("js");</script>
-  {% include head.html fonts="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" %}
-  <meta name="theme-color" content="#fcfcfb" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#141312" media="(prefers-color-scheme: dark)">
-  <script src="{{ '/assets/js/flow.js' | relative_url }}" defer></script>
-  <script src="{{ '/assets/js/lightbox.js' | relative_url }}" defer></script>
+  <script>
+    // Light by day and dark by night on the visitor's clock, unless they clicked 小鱼 during this visit.
+    (function (root) {
+      root.classList.add("js");
+      var saved = null;
+      try { saved = sessionStorage.getItem("mode"); } catch (e) {}
+      var hour = new Date().getHours();
+      root.setAttribute("data-mode", saved || (hour >= 6 && hour < 19 ? "light" : "dark"));
+    })(document.documentElement);
+  </script>
+  {% include head.html fonts="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&display=swap" %}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&amp;text=zzz%3Fwake%20up&amp;display=swap">
+  <meta name="theme-color" content="#ffffff" data-theme-color>
+  <script src="{{ '/assets/js/light.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+  <script src="{{ '/assets/js/cats.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+  <script src="{{ '/assets/js/lightbox.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
 </head>
 <body>
-  <div class="shell">
-    <aside class="profile">
-      {%- if site.avatar %}
-      <img class="avatar" src="{{ site.avatar }}" alt="Photo of {{ site.title }}" width="640" height="640">
-      {%- endif %}
-      <div class="profile-text">
-        <h1 class="name">{{ site.title }}</h1>
-        <p class="role">{{ site.position }}</p>
-        <p class="affiliation">{{ site.affiliation }}</p>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="sun" aria-hidden="true"></div>
+
+  {% include masthead.html %}
+
+  <main id="main">
+    <section class="intro" id="about" aria-labelledby="name">
+      <div class="container">
+        <div class="intro-head">
+          <div class="avatar"{% if site.avatar_caption %} title="{{ site.avatar_caption }}"{% endif %}>
+            <div class="avatar-photo">
+              <img src="{{ site.avatar }}" width="2117" height="2277" alt="{{ site.title }}{% if site.avatar_caption %} at {{ site.avatar_caption }}{% endif %}" fetchpriority="high" decoding="async">
+              <div class="flare" aria-hidden="true"></div>
+            </div>
+          </div>
+          <div class="intro-title">
+            <div class="name-row">
+              <h1 id="name">{{ site.title }}</h1>
+              <button class="xiaoyu" type="button" aria-label="Dark mode" aria-pressed="false" title="Let 小鱼 sleep (dark mode)">{% include fish.html %}<span class="fish-note" aria-hidden="true"><span class="note-day">zzz?</span><span class="note-night">wake up?</span></span></button>
+            </div>
+            {%- if site.position or site.affiliation %}
+            <p class="role">{% if site.position %}<span class="role-part">{{ site.position | replace: "'", "’" }}{% if site.affiliation %}<span class="role-sep" aria-hidden="true">·</span>{% endif %}</span> {% endif %}<span class="role-part">{{ site.affiliation }}</span></p>
+            {%- endif %}
+          </div>
+        </div>
+        <div class="bio">{{ content }}</div>
+        {% include social.html email=true %}
+        {% include playground.html %}
       </div>
-      {% include social.html %}
-      {% include visitor-map.html land="dcdad6" ocean="fcfcfb" text="6e6e6e" %}
-    </aside>
+    </section>
 
-    <main class="flow">
-      <div class="flow-line" aria-hidden="true"><div class="flow-fill"></div></div>
-
-      <section class="section" id="about">
-        <h2 class="section-title">About</h2>
-        <div class="prose">{{ content }}</div>
-        {%- if site.data.interests %}
-        <h3 class="subtitle">Research Interests</h3>
+    {%- if site.data.interests %}
+    <section class="block" id="interests" aria-labelledby="interests-head">
+      <div class="container block-grid">
+        <h2 id="interests-head">Research Interests</h2>
         {% include interests.html %}
-        {%- endif %}
-      </section>
+      </div>
+    </section>
+    {%- endif %}
 
-      {%- if site.data.news %}
-      <section class="section" id="news">
-        <h2 class="section-title">News</h2>
-        {% include news.html %}
-      </section>
-      {%- endif %}
+    {%- if site.data.news %}
+    <section class="block" id="news" aria-labelledby="news-head">
+      <div class="container block-grid">
+        <h2 id="news-head">News</h2>
+        <div>{% include news.html %}</div>
+      </div>
+    </section>
+    {%- endif %}
 
-      {%- if site.data.publications %}
-      <section class="section" id="publications">
-        <h2 class="section-title">Publications</h2>
+    {%- if site.data.publications %}
+    <section class="block" id="publications" aria-labelledby="pubs-head">
+      <div class="container block-grid">
+        <div class="block-head">
+          <h2 id="pubs-head">Publications</h2>
+          {%- assign has_equal = site.data.publications | where_exp: "p", "p.authors contains '*'" | size %}
+          {%- if has_equal > 0 %}
+          <p class="block-note">* Equal contribution</p>
+          {%- endif %}
+        </div>
         {% include publications.html %}
-      </section>
-      {%- endif %}
+      </div>
+    </section>
+    {%- endif %}
 
-      {%- if site.data.experience %}
-      <section class="section" id="experience">
-        <h2 class="section-title">Experience</h2>
+    {%- if site.data.experience %}
+    <section class="block" id="experience" aria-labelledby="exp-head">
+      <div class="container block-grid">
+        <h2 id="exp-head">Experience</h2>
         {% include experience.html %}
-      </section>
-      {%- endif %}
+      </div>
+    </section>
+    {%- endif %}
 
-      {%- if site.data.service %}
-      <section class="section" id="service">
-        <h2 class="section-title">Service</h2>
+    {%- if site.data.service %}
+    <section class="block" id="service" aria-labelledby="service-head">
+      <div class="container block-grid">
+        <h2 id="service-head">Service</h2>
         {% include service.html %}
-      </section>
-      {%- endif %}
+      </div>
+    </section>
+    {%- endif %}
+  </main>
 
-      <footer class="footer">© {{ site.time | date: "%Y" }} {{ site.title }} · Updated {{ site.time | date: "%b %Y" }}</footer>
-    </main>
-  </div>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="colophon"><span>&copy; {{ site.time | date: "%Y" }} {{ site.title }}</span><span>Updated {{ site.time | date: "%b %Y" }}</span></p>
+      {% include visitor-map.html land="e8e4dc" ocean="ffffff" text="74706a" %}
+    </div>
+  </footer>
   {% include scripts.html %}
 </body>
 </html>

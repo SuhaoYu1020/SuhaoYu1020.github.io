@@ -2,7 +2,7 @@
   {%- for i in site.data.interests %}
   <div class="interest">
     <dt>{{ i.area }}</dt>
-    <dd>{% for t in i.topics %}<span class="topic">{{ t }}</span>{% endfor %}</dd>
+    <dd>{{ i.topics | join: ", " }}</dd>
   </div>
   {%- endfor %}
 </dl>

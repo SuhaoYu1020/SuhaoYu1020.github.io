@@ -1,17 +1,18 @@
-{%- assign news = site.data.news -%}
-{%- assign news_limit = site.news_limit | default: 6 -%}
-<ul class="news">
-  {%- for item in news limit: news_limit %}
-  {% include news-item.html item=item %}
+{%- comment %} The newest `news_limit` items, then the rest folded under "Earlier news" (no script needed). {% endcomment %}
+{%- assign limit = site.news_limit | default: 6 %}
+{%- assign total = site.data.news | size %}
+<ol class="news-list">
+  {%- for item in site.data.news limit: limit %}
+  {% include news-item.html item=item latest=forloop.first %}
   {%- endfor %}
-</ul>
-{%- if news.size > news_limit %}
-<details class="more">
-  <summary><span class="more-show">Show {{ news.size | minus: news_limit }} earlier</span><span class="more-hide">Show less</span>{% include icon.html name="chevron" %}</summary>
-  <ul class="news">
-    {%- for item in news offset: news_limit %}
+</ol>
+{%- if total > limit %}
+<details class="news-more">
+  <summary>Earlier news <span class="news-count">{{ total | minus: limit }}</span></summary>
+  <ol class="news-list">
+    {%- for item in site.data.news offset: limit %}
     {% include news-item.html item=item %}
     {%- endfor %}
-  </ul>
+  </ol>
 </details>
 {%- endif %}

@@ -1,4 +1,4 @@
-<li class="news-item">
+<li class="news-item{% if include.latest %} is-latest{% endif %}">
     <span class="news-date">{{ include.item.date }}</span>
-    <span class="news-text">{{ include.item.text | markdownify | remove: "<p>" | remove: "</p>" | strip }}</span>
+    <p class="news-text">{{ include.item.text | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
   </li>

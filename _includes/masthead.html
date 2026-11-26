@@ -1,0 +1,13 @@
+<header class="masthead" data-masthead>
+  <div class="container bar">
+    <a class="wordmark" href="{{ '/' | relative_url }}" aria-label="{{ site.title }}, home">{{ site.title }}</a>
+    <nav aria-label="Sections">
+      <ul class="nav-links">
+        <li class="nav-about"><a href="#about">About</a></li>
+        {%- if site.data.news %}<li><a href="#news">News</a></li>{% endif %}
+        {%- if site.data.publications %}<li><a href="#publications">Publications</a></li>{% endif %}
+        {%- if site.data.experience %}<li><a href="#experience">Experience</a></li>{% endif %}
+      </ul>
+    </nav>
+  </div>
+</header>

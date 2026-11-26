@@ -2,14 +2,15 @@
   {%- for e in site.data.experience %}
   <li class="exp-item">
     {%- if e.logo %}
-    <img class="exp-logo" src="{{ e.logo }}" alt="" loading="lazy" decoding="async">
+    <img class="exp-logo" src="{{ e.logo }}" alt="" width="48" height="48" loading="lazy" decoding="async">
     {%- endif %}
     <div class="exp-body">
-      <div class="exp-line">
-        <h3 class="exp-name">{% if e.url %}<a href="{{ e.url }}" target="_blank" rel="noopener">{{ e.name }}</a>{% else %}{{ e.name }}{% endif %}</h3>
-        <span class="exp-period">{{ e.period }}</span>
-      </div>
-      <p class="exp-role">{{ e.role }}{% if e.description %}<span class="sep" aria-hidden="true">/</span><span class="exp-desc">{{ e.description }}</span>{% endif %}</p>
+      <h3 class="exp-name">{% if e.url %}<a href="{{ e.url }}" target="_blank" rel="noopener">{{ e.name }}</a>{% else %}{{ e.name }}{% endif %}</h3>
+      <p class="exp-role">{{ e.role }}</p>
+      {%- if e.description %}
+      <p class="exp-desc">{{ e.description }}</p>
+      {%- endif %}
+      <p class="exp-period">{{ e.period }}</p>
     </div>
   </li>
   {%- endfor %}

@@ -8,11 +8,11 @@
   {%- if site.canonical %}
   <link rel="canonical" href="{{ site.canonical }}">
   {%- endif %}
-  <meta name="color-scheme" content="{% if site.auto_dark_mode %}light dark{% else %}light{% endif %}">
+  <meta name="color-scheme" content="light dark">
   <link rel="icon" media="(prefers-color-scheme: dark)" href="{{ site.favicon_dark }}" type="image/png">
   <link rel="icon" media="(prefers-color-scheme: light)" href="{{ site.favicon }}" type="image/png">
   <script src="{{ '/assets/js/favicon-switcher.js' | relative_url }}"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="{{ include.fonts }}">
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">

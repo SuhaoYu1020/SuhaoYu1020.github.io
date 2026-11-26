@@ -1,0 +1,16 @@
+{%- comment %} 小鱼, a line-drawing little fish facing right. Awake in light mode; eyes closed and blowing bubbles in dark mode. It is the button that switches the two (scripts.html). Colours are set on the drawing itself so it reads even before the stylesheet loads. {% endcomment -%}
+<svg viewBox="0 0 64 40" width="64" height="40" focusable="false">
+  <g class="fish-look">
+  <g class="fish-swim" fill="none" stroke="#2b2a28" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path class="fish-tail fish-fill" d="M13.5 21 L4.5 13 Q7 21 4.5 29 Z" fill="#ffe08f"/>
+    <path class="fish-fill" d="M13 21 C 19 11, 36 9, 47 13 C 53 15.5, 56 19, 56 21 C 56 23, 53 26.5, 47 29 C 36 33, 19 31, 13 21 Z" fill="#ffe08f"/>
+    <path d="M38 14.5 Q 35 21 38 27.5"/>
+    <path d="M51.6 23.6 q1.6 .8 2.8 -.4"/>
+    <circle class="fish-eye" cx="45.5" cy="18.5" r="1.9" fill="#2b2a28" stroke="none"/>
+    <path class="fish-eye-shut" d="M43 18.2 q2.5 2.3 5 0"/>
+    <g class="fish-bubbles" stroke-width="1.6">
+      <circle class="fish-bubble" cx="58" cy="16" r="2.4"/><circle class="fish-bubble" cx="59" cy="15" r="3.4"/><circle class="fish-bubble" cx="57.5" cy="16.5" r="1.9"/>
+    </g>
+  </g>
+  </g>
+</svg>

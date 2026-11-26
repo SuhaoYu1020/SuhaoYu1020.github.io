@@ -1,12 +1,17 @@
 <script>
   // Copy the email address on click; fall back to mailto: where the clipboard is unavailable.
   document.querySelectorAll(".email[data-user]").forEach(function (button) {
+    var status = button.querySelector(".email-done");
     button.addEventListener("click", function () {
       var address = button.dataset.domain ? button.dataset.user + "@" + button.dataset.domain : button.dataset.user;
       var copied = function () {
         button.classList.add("is-copied");
+        if (status) status.textContent = "Copied";
         clearTimeout(button.copiedTimer);
-        button.copiedTimer = setTimeout(function () { button.classList.remove("is-copied"); }, 1600);
+        button.copiedTimer = setTimeout(function () {
+          button.classList.remove("is-copied");
+          if (status) status.textContent = "";
+        }, 1600);
       };
       if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(address).then(copied, function () { location.href = "mailto:" + address; });
@@ -15,4 +20,97 @@
       }
     });
   });
+
+  // The header gains a hairline once the page has scrolled.
+  (function () {
+    var masthead = document.querySelector("[data-masthead]");
+    if (!masthead) return;
+    var scrolled = null;
+    var update = function () {
+      var past = window.scrollY > 8;
+      if (past !== scrolled) { masthead.classList.toggle("is-scrolled", past); scrolled = past; }
+    };
+    window.addEventListener("scroll", update, { passive: true });
+    update();
+  })();
+
+  // 小鱼 switches the page between light (awake) and dark (asleep, blowing bubbles). The choice lasts for
+  // this visit; until then the mode follows the visitor's clock (set in the head before the page paints).
+  (function () {
+    var root = document.documentElement;
+    var fish = document.querySelector(".xiaoyu");
+    var themeColor = document.querySelector("[data-theme-color]");
+    if (!fish) return;
+    var saved = function () { try { return sessionStorage.getItem("mode"); } catch (e) { return null; } };
+    var show = function () {
+      var dark = root.getAttribute("data-mode") === "dark";
+      fish.setAttribute("aria-pressed", dark ? "true" : "false");
+      fish.title = dark ? "Wake 小鱼 up (light mode)" : "Let 小鱼 sleep (dark mode)";
+      if (themeColor) themeColor.setAttribute("content", dark ? "#13151b" : "#ffffff");
+    };
+    var set = function (mode, animate) {
+      if (root.getAttribute("data-mode") === mode) return;
+      if (animate) {
+        root.classList.add("is-switching");
+        clearTimeout(root.switchTimer);
+        root.switchTimer = setTimeout(function () { root.classList.remove("is-switching"); }, 650);
+      }
+      root.setAttribute("data-mode", mode);
+      show();
+    };
+    show();
+    // Once a visit: if nobody has clicked 小鱼 after about 8 seconds on the page, it flips over and blows a
+    // bubble, waiting until it is on screen and the tab is in front.
+    var store = function (key, value) { try { if (value) sessionStorage.setItem(key, value); return sessionStorage.getItem(key); } catch (e) { return "1"; } };
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var onScreen = true, hintDue = false, hintTimer = 0;
+    var hint = function () {
+      if (store("fish-hinted")) return;
+      if (document.hidden || !onScreen) { hintDue = true; return; }
+      store("fish-hinted", "1");
+      fish.classList.add("is-hinting");
+      setTimeout(function () { fish.classList.remove("is-hinting"); }, 2600);
+    };
+    if (!store("fish-hinted") && !reduce.matches) {
+      hintTimer = setTimeout(hint, 8000);
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver(function (entries) {
+          onScreen = entries[0].isIntersecting;
+          if (onScreen && hintDue) setTimeout(hint, 600);
+        }).observe(fish);
+      }
+      document.addEventListener("visibilitychange", function () { if (!document.hidden && hintDue) setTimeout(hint, 600); });
+    }
+
+    // On hover the fish turns to face the mouse and tips its nose toward it.
+    var look = fish.querySelector(".fish-look");
+    if (look && window.matchMedia("(hover: hover)").matches) {
+      fish.addEventListener("pointermove", function (e) {
+        var r = fish.getBoundingClientRect();
+        var dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+        var face = dx < -r.width * 0.12 ? -1 : 1;
+        var tilt = Math.max(-1, Math.min(1, dy / (r.height / 2))) * 14 * face;
+        look.style.transform = "scaleX(" + face + ") rotate(" + tilt.toFixed(1) + "deg)";
+      });
+      fish.addEventListener("pointerleave", function () { look.style.transform = ""; });
+    }
+
+    fish.addEventListener("click", function () {
+      store("fish-hinted", "1");
+      clearTimeout(hintTimer);
+      var mode = root.getAttribute("data-mode") === "dark" ? "light" : "dark";
+      try { sessionStorage.setItem("mode", mode); } catch (e) {}
+      set(mode, true);
+      fish.classList.remove("is-poked");
+      void fish.offsetWidth; // restart the flip
+      fish.classList.add("is-poked");
+      clearTimeout(fish.pokeTimer);
+      fish.pokeTimer = setTimeout(function () { fish.classList.remove("is-poked"); }, 800);
+    });
+    setInterval(function () {
+      if (saved()) return;
+      var hour = new Date().getHours();
+      set(hour >= 6 && hour < 19 ? "light" : "dark", true);
+    }, 60000);
+  })();
 </script>

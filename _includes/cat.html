@@ -1,0 +1,50 @@
+{%- comment %} One cat, drawn facing right on a 72 by 52 box whose floor is the bottom edge. Two poses: running (legs swing in CSS) and sitting. kind = ginger (stripes) or ink (white chest, muzzle and paws). {% endcomment -%}
+<svg viewBox="0 -4 72 52" width="72" height="52" focusable="false">
+  <g class="pose-run">
+    <path class="c-tail" d="M14 27 C 5 25, 2 14, 7 8"/>
+    <g class="leg leg-back leg-a"><rect class="c-far" x="17" y="34" width="6" height="14" rx="3"/></g>
+    <g class="leg leg-front leg-b"><rect class="c-far" x="41" y="34" width="6" height="14" rx="3"/></g>
+    <ellipse class="c-fur" cx="31" cy="30" rx="18" ry="10"/>
+    {%- if include.kind == "ginger" %}
+    <path class="c-stripe" d="M25 21.5 q1.6 4 0 8 M31 20.6 q1.6 4 0 8 M37 21.5 q1.6 4 0 8"/>
+    {%- else %}
+    <ellipse class="c-white" cx="45" cy="33" rx="4.5" ry="6"/>
+    {%- endif %}
+    <g class="leg leg-back leg-b"><rect class="c-fur" x="22" y="34" width="6" height="14" rx="3"/>{% if include.kind == "ink" %}<rect class="c-white" x="22" y="43" width="6" height="5" rx="2.5"/>{% endif %}</g>
+    <g class="leg leg-front leg-a"><rect class="c-fur" x="46" y="34" width="6" height="14" rx="3"/>{% if include.kind == "ink" %}<rect class="c-white" x="46" y="43" width="6" height="5" rx="2.5"/>{% endif %}</g>
+    <path class="c-fur" d="M44.5 15 L46 4 L52.5 11 Z M54.5 10.5 L61 5 L61.5 16 Z"/>
+    <circle class="c-fur" cx="52" cy="20" r="10"/>
+    {%- if include.kind == "ginger" %}
+    <path class="c-stripe" d="M50 11 v3.5"/>
+    {%- else %}
+    <circle class="c-white" cx="59" cy="23" r="3.2"/>
+    {%- endif %}
+    <circle class="c-eye" cx="56" cy="18.5" r="1.6"/>
+    <circle class="c-nose" cx="61.6" cy="21.5" r="1.2"/>
+  </g>
+  <g class="pose-sit">
+    <path class="c-tail" d="M24 47 C 12 48, 7 42, 11 36"/>
+    <ellipse class="c-fur" cx="29" cy="38" rx="13" ry="10"/>
+    <ellipse class="c-fur" cx="38" cy="30" rx="9" ry="13"/>
+    {%- if include.kind == "ginger" %}
+    <path class="c-stripe" d="M23 31 q2 4 0 8 M28.5 29.5 q2 4 0 8"/>
+    {%- else %}
+    <ellipse class="c-white" cx="41" cy="31" rx="4.5" ry="8"/>
+    {%- endif %}
+    <rect class="c-fur" x="36" y="32" width="6" height="16" rx="3"/>
+    <rect class="c-fur" x="42" y="32" width="6" height="16" rx="3"/>
+    {%- if include.kind == "ink" %}
+    <rect class="c-white" x="36" y="43" width="6" height="5" rx="2.5"/>
+    <rect class="c-white" x="42" y="43" width="6" height="5" rx="2.5"/>
+    {%- endif %}
+    <path class="c-fur" d="M35.5 9 L37 -2 L43.5 5 Z M45.5 4.5 L52 -1 L52.5 10 Z"/>
+    <circle class="c-fur" cx="43" cy="14" r="10"/>
+    {%- if include.kind == "ginger" %}
+    <path class="c-stripe" d="M41 5.5 v3.5"/>
+    {%- else %}
+    <circle class="c-white" cx="50" cy="17" r="3.2"/>
+    {%- endif %}
+    <circle class="c-eye" cx="47" cy="12.5" r="1.6"/>
+    <circle class="c-nose" cx="52.6" cy="15.5" r="1.2"/>
+  </g>
+</svg>

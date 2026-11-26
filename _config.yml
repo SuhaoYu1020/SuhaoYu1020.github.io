@@ -8,7 +8,8 @@ title: Suhao Yu
 position: Master's Student
 affiliation: University of Pennsylvania
 email: suhaoyu (at) seas.upenn.edu
-avatar: ./assets/img/profile.jpg
+avatar: ./assets/img/武康大楼.jpg
+avatar_caption: Wukang Mansion, Shanghai
 favicon: ./assets/img/Suhao.png
 favicon_dark: ./assets/img/Suhao_dark.png
 
@@ -24,10 +25,7 @@ keywords: Suhao Yu, Suhao Yu UPenn, Suhao Yu University of Pennsylvania, compute
 description: Suhao Yu is a Master's Student at the University of Pennsylvania (UPenn). Personal academic homepage with research interests, publications, and projects.
 canonical: https://suhaoyu1020.github.io/
 
-# Follow the visitor's light/dark system setting.
-auto_dark_mode: true
-
-# News items shown before the "Show more" toggle.
+# News items shown before the "Earlier news" toggle.
 news_limit: 6
 
 # MapMyVisitors widget id (the `d=` value of its embed code). Delete to hide the map.
